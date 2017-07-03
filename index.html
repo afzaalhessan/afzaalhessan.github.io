@@ -20,7 +20,7 @@
 
         
         <script type="text/javascript">
-            $.get("hello.txt")
+            $.ajax("hello.txt")
              .done(function(data){
 
                 $("p").html(data);
