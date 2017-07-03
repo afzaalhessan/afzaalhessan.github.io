@@ -8,9 +8,9 @@
         <script type="text/javascript" src="jquery.min.js"></script>
 
         
-        <style type="text/css" src="style.css">
+        <style type="text/css" src="style.css"></style>
         
-        </style>
+
                 
     </head>
 
@@ -23,7 +23,7 @@
             $.ajax("hello.txt")
              .done(function(data){
 
-                $("p").html(data);
+                $("p").html(data + " test test test");
             })
 
             .fail(function(){
