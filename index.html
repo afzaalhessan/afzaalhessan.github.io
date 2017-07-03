@@ -3,35 +3,26 @@
 
     <head>
         
-        <title>Ajax2</title>
+        <title>Ajax</title>
  
         <script type="text/javascript" src="jquery.min.js"></script>
 
         
-        <style type="text/css" src="style.css"></style>
-        
+        <link rel="stylesheet" href="css/style.css">
 
                 
     </head>
 
     <body>
-            <p></p>
-            <div id="circle"></div>
-            testtesttest
-        
-        <script type="text/javascript">
-            $.ajax("hello.txt")
-             .done(function(data){
-
-                $("p").html(data + " test test test");
-            })
-
-            .fail(function(){
-
-                alert("could not get data");
-            });
             
+        <script type="text/javascript">
+            var regex = /is/;
 
+            var string = "regex is great!";
+
+            var result = string.match(regex);
+
+            alert(result);
                
             
         </script>
