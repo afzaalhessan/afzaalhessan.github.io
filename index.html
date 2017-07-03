@@ -3,25 +3,32 @@
 
     <head>
         
-        <title>Ajax</title>
+        <title>Ajax2</title>
  
         <script type="text/javascript" src="jquery.min.js"></script>
+
         
-        <style type="text/css">
+        <style type="text/css" src="style.css">
         
         </style>
                 
     </head>
 
     <body>
-        hello
         
+            <div id="circle"></div>
 
         
         <script type="text/javascript">
-            $.ajax("hi.txt").done(function(data){
+            $.ajax("hi.txt")
+             .done(function(data){
 
-                alert(data);
+                $("p").html(data);
+            })
+
+             .fail(function(){
+
+                alert("could not get data");
             });
             
 
