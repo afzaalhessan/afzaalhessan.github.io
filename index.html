@@ -14,17 +14,15 @@
     </head>
 
     <body>
-        
+        hello
         
 
         
         <script type="text/javascript">
-            $.get("hello.txt", function(data){
+            $.ajax("hi.txt").done(function(data){
 
                 alert(data);
-
-            })
-
+            });
             
 
                
