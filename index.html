@@ -27,7 +27,6 @@ button {
     <button onclick="setMode(0)">Player</button>&nbsp;
     <button onclick="setMode(1)">Bat</button>&nbsp;
     <button onclick="setMode(2)">Blob 1</button>&nbsp;
-    <button onclick="setMode(3)">Blob 2</button>&nbsp;
     <button onclick="setMode(4)">Melee</button>&nbsp;
     <button onclick="setMode(5)">Ranger</button>&nbsp;
     <button onclick="setMode(6)">Mager</button>
@@ -38,15 +37,10 @@ button {
     <button onclick="togglePillar(1)">North</button>
     <button onclick="togglePillar(2)">South</button>
     <button onclick="togglePlayerLoS()">LoS</button>
-    <button onclick="toggleSpawns()">Spawns</button>
-    <button onclick="toggleZukSpots()">Zuk Spots</button>
-    <button onclick="toggleNibblerSpawn()">Nib Spawn</button>
     &nbsp;&nbsp;Random&nbsp;
-    <input id="wave" type="number" style="width: 64px; text-align: center" placeholder=" Wave #" max="66" min="1">
-    <button onClick="randomWave()">GO</button>
 </div>
 <canvas id="map" onselectstart="return false" oncontextmenu="return false"></canvas>
-	<br>Based on code from <a href="https://ifreedive-osrs.github.io/">iFreedive's rendition <a href="https://bistools.github.io/inferno.html">Backseat's tool</a>. All credit to him.
+	<br>Based on code from <a href="https://ifreedive-osrs.github.io/">iFreedive's rendition</a> of <a href="https://bistools.github.io/inferno.html">Backseat's tool</a>. All credit to him.
 <script>
 var SIZE = [1,2,3,3,4,3,4,1,1,1];
 var RANGE = [10,4,15,15,1,15,15,1,1,1];
@@ -67,18 +61,7 @@ var showSpawns = true;
 var showPlayerLoS = true;
 var showNibblerSpawn = true;
 var showZukSpots = true;
-var img_sources = [
-	"",
-	"bat-sized.png",
-	"blob-sized.png",
-	"blob-sized.png",
-	"melee-sized.png",
-	"ranger-sized.png",
-	"mage-sized.png",
-	"nibbler-sized-west.png",	
-	"nibbler-sized-north.png",
-	"nibbler-sized-south.png",
-];
+	
 var nibblers = [
 	[3,9,7,3,9,0],
 	[16,7,8,16,7,0],
@@ -229,25 +212,20 @@ document.addEventListener('keydown',function(e){
 			drawWave();
 			break;
 		case 69:
-			mode = 3
-			place();
-			drawWave();
-			break;
-		case 82:
 			mode = 4
 			place();
 			drawWave();
 			break;
-		case 84:
+		case 82:
 			mode = 5
 			place();
 			drawWave();
 			break;
-		case 89:
+		case 84:
 			mode = 6
 			place();
 			drawWave();
-			break;
+			break;			
 	}
 });
 document.addEventListener('keydown',function(e){
