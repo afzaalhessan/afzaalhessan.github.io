@@ -22,14 +22,12 @@ button {
     <button onclick="remove()">Clear</button>
     &nbsp;
     <button onclick="place()">Place NPC</button>&nbsp;
-    <button onclick="meleeDig()">Melee Dig</button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <button onclick="setMode(0)">Player</button>&nbsp;
-    <button onclick="setMode(1)">Bat</button>&nbsp;
-    <button onclick="setMode(2)">Blob 1</button>&nbsp;
-    <button onclick="setMode(4)">Melee</button>&nbsp;
-    <button onclick="setMode(5)">Ranger</button>&nbsp;
-    <button onclick="setMode(6)">Mager</button>
+    <button onclick="setMode(1)">Bat(q)</button>&nbsp;
+    <button onclick="setMode(2)">Blob(w)</button>&nbsp;
+    <button onclick="setMode(4)">Melee(e)</button>&nbsp;
+    <button onclick="setMode(5)">Ranger(r)</button>&nbsp;
+    <button onclick="setMode(6)">Mager(t)</button>
 </div>
 <div style="margin-bottom: 10px; width: 700px; text-align: center;">
     &nbsp;&nbsp;&nbsp;Toggle: &nbsp;
@@ -37,7 +35,6 @@ button {
     <button onclick="togglePillar(1)">North</button>
     <button onclick="togglePillar(2)">South</button>
     <button onclick="togglePlayerLoS()">LoS</button>
-    &nbsp;&nbsp;Random&nbsp;
 </div>
 <canvas id="map" onselectstart="return false" oncontextmenu="return false"></canvas>
 	<br>Based on code from <a href="https://ifreedive-osrs.github.io/">iFreedive's rendition</a> of <a href="https://bistools.github.io/inferno.html">Backseat's tool</a>. All credit to him.
