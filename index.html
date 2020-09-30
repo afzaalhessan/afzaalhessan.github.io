@@ -19,14 +19,18 @@ button {
 </head>
 <body>
 <div style="margin-bottom: 10px; width: 700px; text-align: center;">
-    <button onclick="remove()">Clear</button>&nbsp;
+    <button onclick="remove()">Clear</button>
+    &nbsp;
     <button onclick="place()">Place NPC</button>&nbsp;
+    <button onclick="meleeDig()">Melee Dig</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <button onclick="setMode(0)">Player</button>&nbsp;
-    <button onclick="setMode(1)">Bat (Q)</button>&nbsp;
-    <button onclick="setMode(2)">Blob (W)</button>&nbsp;
-    <button onclick="setMode(4)">Melee (E)</button>&nbsp;
-    <button onclick="setMode(5)">Ranger (R)</button>&nbsp;
-    <button onclick="setMode(6)">Mager (T)</button>
+    <button onclick="setMode(1)">Bat</button>&nbsp;
+    <button onclick="setMode(2)">Blob 1</button>&nbsp;
+    <button onclick="setMode(3)">Blob 2</button>&nbsp;
+    <button onclick="setMode(4)">Melee</button>&nbsp;
+    <button onclick="setMode(5)">Ranger</button>&nbsp;
+    <button onclick="setMode(6)">Mager</button>
 </div>
 <div style="margin-bottom: 10px; width: 700px; text-align: center;">
     &nbsp;&nbsp;&nbsp;Toggle: &nbsp;
@@ -34,9 +38,20 @@ button {
     <button onclick="togglePillar(1)">North</button>
     <button onclick="togglePillar(2)">South</button>
     <button onclick="togglePlayerLoS()">LoS</button>
+    <button onclick="toggleSpawns()">Spawns</button>
+    <button onclick="toggleZukSpots()">Zuk Spots</button>
+    <button onclick="toggleNibblerSpawn()">Nib Spawn</button>
+    &nbsp;&nbsp;Random&nbsp;
+    <input id="wave" type="number" style="width: 64px; text-align: center" placeholder=" Wave #" max="66" min="1">
+    <button onClick="randomWave()">GO</button>
 </div>
-<canvas id="map" onselectstart="return false" oncontextmenu="return false"></canvas>
-	<br>Based on code from <a href="https://ifreedive-osrs.github.io/">iFreedive's rendition</a> of <a href="https://bistools.github.io/inferno.html">Backseat's tool</a>. All credit to him.
+<canvas id="map" onselectstart="return false" oncontextmenu="return false" style="
+  -webkit-transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);"></canvas>
+	<br>Based on code from <a href="https://bistools.github.io/inferno.html">Backseat's tool</a>. All credit to him.
 <script>
 var SIZE = [1,2,3,3,4,3,4,1,1,1];
 var RANGE = [10,4,15,15,1,15,15,1,1,1];
@@ -57,7 +72,18 @@ var showSpawns = true;
 var showPlayerLoS = true;
 var showNibblerSpawn = true;
 var showZukSpots = true;
-	
+var img_sources = [
+	"",
+	"bat-sized.png",
+	"blob-sized.png",
+	"blob-sized.png",
+	"melee-sized.png",
+	"ranger-sized.png",
+	"mage-sized.png",
+	"nibbler-sized-west.png",	
+	"nibbler-sized-north.png",
+	"nibbler-sized-south.png",
+];
 var nibblers = [
 	[3,9,7,3,9,0],
 	[16,7,8,16,7,0],
@@ -208,20 +234,25 @@ document.addEventListener('keydown',function(e){
 			drawWave();
 			break;
 		case 69:
-			mode = 4
+			mode = 3
 			place();
 			drawWave();
 			break;
 		case 82:
-			mode = 5
+			mode = 4
 			place();
 			drawWave();
 			break;
 		case 84:
+			mode = 5
+			place();
+			drawWave();
+			break;
+		case 89:
 			mode = 6
 			place();
 			drawWave();
-			break;			
+			break;
 	}
 });
 document.addEventListener('keydown',function(e){
@@ -339,7 +370,7 @@ function hasLOS(x1, y1, x2, y2,s=1,r=1,isNPC=false) {
 				return false;
 			}
 		}
-
+		
 	}
 	return true;
 }
